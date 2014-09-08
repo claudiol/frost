@@ -1,0 +1,54 @@
+%%
+%% This style is derived from the docbook one.
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{asciidoc-dblatex}[2012/10/24 AsciiDoc DocBook Style]
+
+% this will set letterpaper, because docbook.sty honors page layout
+% made by geometry package
+\usepackage[letterpaper,total={7.25in,9.25in}, top=1in, bottom=1in]{geometry}
+
+%% Just use the original package and pass the options.
+\RequirePackageWithOptions{docbook}
+
+\newlength\mylength
+\def\redribbon{
+   \setlength\mylength{0.3\paperheight}
+  \AddToShipoutPicture*{
+     \put(0,\LenToUnit{\mylength}){%
+       {\color{red}\rule{\paperwidth}{1cm}}}
+   }
+}
+
+% custom cover page
+\def\DBKcover{
+  \ifthenelse{\equal{\DBKedition}{}}{\def\edhead{}}{\def\edhead{Ed. \DBKedition}}
+  \thispagestyle{empty}
+  \begin{flushright}
+  \vspace*{1in}
+  \bfseries
+  \sffamily
+  {\Huge \DBKtitle \\[1ex]\large ~~~ \\}
+  \vspace*{2.1in}
+  {\color{red} \Huge ~~~ \\ \huge ~~~ \\}
+  \vspace*{2.1in}
+  {\Large\DBKdate \\}
+  \end{flushright}
+  \vfill
+  \begin{center}{\Large \bfseries \sffamily Red Hat, Inc}\end{center}
+  \begin{center}{\Large \bfseries \sffamily RED HAT Consulting - Confidential}\end{center}
+  \begin{center}{\Large \bfseries \sffamily Restricted Distribution}\end{center}
+  \redribbon
+}
+
+\lstset{%
+    basicstyle=\ttfamily\small,
+}
+
+\fancyhead{} % clear all fields
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{\bfseries \sffamily\small Copyright 2014 Red Hat, Inc. All rights reserved. 'Red Hat,' Red Hat Linux, the Red Hat "Shadowman" logo, and the products listed are trademarks or registered trademarks of Red Hat, Inc. in the US and other countries. Linux is a registered trademark of Linus Torvalds.  http://www.redhat.com}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}

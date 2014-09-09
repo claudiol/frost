@@ -19,10 +19,8 @@ Build and Installation
 
 To build and install the frost gem, do:
 
-    ```
     gem build frost.gemspec
     gem install frost-x.y.z.gem
-    ```
 
 
 How are we organized

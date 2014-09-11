@@ -1,0 +1,28 @@
+*.gem
+*.rbc
+~*
+.~*
+.bundle
+.config
+.idea
+.idea/*
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+doc/asciidoc/images/icons/*
+doc/asciidoc/guide.xml
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+# Emacs temporary files
+*#
+.#*
